@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MiBaseDatosP77A</string>
+    <string name="Agregar">Agregar</string>
+    <string name="Guardar">Guardar</string>
+    <string name="Usuario">Usuario:</string>
+    <string name="Email">Email:</string>
+    <string name="Twitter">Twitter:</string>
+    <string name="Telefono">Telefono:</string>
+    <string name="Fecha">Fecha de Nacimiento:</string>
+    <string name="Cancelar">Cancelar</string>
+</resources>
