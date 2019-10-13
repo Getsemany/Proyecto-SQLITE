@@ -94,5 +94,19 @@ public class DAOContactos {
     public void eliminar(int id){
         _sqLiteDatabase.execSQL("delete from contactos where _id="+id);
     }
+    public void modificar(Contacto contacto){
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(MiDB.COLUMNS_NAME_CONTACTO[1],
+                contacto.getUsuario());
+        contentValues.put(MiDB.COLUMNS_NAME_CONTACTO[2],
+                contacto.getEmail());
+        contentValues.put(MiDB.COLUMNS_NAME_CONTACTO[3],
+                contacto.getTel());
+        contentValues.put(MiDB.COLUMNS_NAME_CONTACTO[4],
+                contacto.getFecNac()+"");
+        _sqLiteDatabase.update(MiDB.TABLE_NAME_CONTACTOS,contentValues,"_id= ?",new String[]{contacto.getId()+""});
+        /*_sqLiteDatabase.execSQL("update contactos set usuario="+con.getUsuario()+",email="+con.getEmail()+",tel="+con.getTel()+",fecNacimiento="+con.getFecNac()+
+        "where _id="+con.getId());*/
+    }
 
 }

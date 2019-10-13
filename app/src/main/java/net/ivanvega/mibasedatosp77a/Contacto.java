@@ -57,7 +57,5 @@ public  class Contacto implements Serializable {
     public void setFecNac(Date fecNac) {
         this.fecNac = fecNac;
     }
-    public String message(){
-        return this.usuario +"\n"+ this.email;
-    }
+
 }

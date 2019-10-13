@@ -1,14 +1,10 @@
 package net.ivanvega.mibasedatosp77a;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
-
-public class MiDB
-        extends SQLiteOpenHelper {
-
+public class MiDB  extends SQLiteOpenHelper {
 
     private String SCRIPT_DB = "create table Contactos (" +
             "_id integer primary key autoincrement," +
@@ -32,7 +28,6 @@ public class MiDB
                 null,
                 1);
     }
-
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(SCRIPT_DB);

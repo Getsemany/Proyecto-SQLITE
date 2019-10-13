@@ -27,30 +27,6 @@ public class MainActivity extends AppCompatActivity {
     txtid=(TextView)findViewById(R.id.txtId);
     txtnombre=(TextView)findViewById(R.id.txtNombre);
          dao = new DAOContactos(this);
-        /*try {
-            dao.insert(new Contacto(0, "perronegro",
-                    "perronegro@","445",new SimpleDateFormat("yyyy/MM/dd").parse("1998/07/20")));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        try {
-            dao.insert(new Contacto(0, "perroblanco",
-                    "perroblanco@","544",new SimpleDateFormat("yyyy/MM/dd").parse("1998/07/20")));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        try {
-            for (Contacto c : dao.getAll()){
-                 Toast.makeText(this,
-                         c.usuario,
-                         Toast.LENGTH_SHORT).show();
-             }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        dao.eliminar(2);
-
-*/
         lv = findViewById(R.id.lv);
         Mostrar();
 
@@ -74,10 +50,21 @@ public class MainActivity extends AppCompatActivity {
         Intent siguiente=new Intent(this,Intent2.class);
         startActivityForResult(siguiente,0);
     }
+    public void Editar(View view){
+        if(!txtid.getText().toString().equals("")){
+        Intent siguiente=new Intent(this,Intent2.class);
+        startActivityForResult(siguiente,1);}
+    }
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode==0){
         if(resultCode==MainActivity.RESULT_OK){
             con=(Contacto)data.getSerializableExtra("con");
             dao.insert(con);
+            Mostrar();
+        }}else{
+            con=(Contacto)data.getSerializableExtra("con");
+            con.setId(Integer.parseInt(txtid.getText().toString()));
+            dao.modificar(con);
             Mostrar();
         }
     }

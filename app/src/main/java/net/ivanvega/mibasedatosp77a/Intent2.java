@@ -29,9 +29,11 @@ public class Intent2 extends AppCompatActivity {
         Fecha=(EditText)findViewById(R.id.txtFecha);
     }
     public void Guardar(View view){
+
         Contacto obj= null;
         try {
-            obj = new Contacto(0,txtUsuario.getText().toString(),txtEmail.getText().toString(),Tel.getText().toString(),new SimpleDateFormat("yyyy/MM/dd").parse(Fecha.getText().toString())
+            obj = new Contacto(0,txtUsuario.getText().toString(),txtEmail.getText().toString(),
+                    Tel.getText().toString(),new SimpleDateFormat("yyyy/MM/dd").parse(Fecha.getText().toString())
                     );
         } catch (ParseException e) {
             Cancelar(view);
